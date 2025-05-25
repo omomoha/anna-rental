@@ -41,7 +41,9 @@ export default function LandlordListings() {
 
   const handleToggleStatus = (idx: number) => {
     const newListings = listings.map((l, i) =>
-      i === idx ? { ...l, status: l.status === "Active" ? "Paused" : "Active" } : l
+      i === idx
+        ? { ...l, status: l.status === "Active" ? ("Paused" as "Paused") : ("Active" as "Active") }
+        : l
     );
     saveListings(newListings);
   };
